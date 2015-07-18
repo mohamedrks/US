@@ -15,7 +15,7 @@ define('TWITTER_CONSUMER_SECRET', '4GY77Br7Bb9Qj6LeTqDsF4yv1EHaz9QszmrwH9Yrug');
 define('TWITTER_ACCESS_KEY', '1547993060-mLjxB558deQdys7IHkcAjIEv7IDZQ2pxYRqaSJK');
 define('TWITTER_ACCESS_SECRET', '2zWlTYyn7abDWDQvroKLKhIqZgVwkuLBRGc322JAg9ceZ');
 
-define('DB_SERVER_IP','localhost');
-define('DB_SERVER_NAME','dev');
-define('DB_SERVER_USER_NAME','uniquestore');
-define('DB_SERVER_PASSWORD','infoways_123');
+define('DB_SERVER_IP','128.199.121.35'); // localhost
+define('DB_SERVER_NAME','cgbqpuhdmx'); //root
+define('DB_SERVER_USER_NAME','cgbqpuhdmx'); // uniquestore
+define('DB_SERVER_PASSWORD','aJP2WDMETT');

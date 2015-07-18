@@ -87,9 +87,9 @@ App::down(function()
 
 require app_path().'/filters.php';
 
-define('DB_SERVER_IP','localhost');
-define('DB_SERVER_NAME','root');
-define('DB_SERVER_USER_NAME','uniquestore');
-define('DB_SERVER_PASSWORD','');
+define('DB_SERVER_IP','128.199.121.35'); // localhost
+define('DB_SERVER_NAME','cgbqpuhdmx'); //root
+define('DB_SERVER_USER_NAME','cgbqpuhdmx'); // uniquestore
+define('DB_SERVER_PASSWORD','aJP2WDMETT');
 
 setlocale(LC_MONETARY,"en_US");
