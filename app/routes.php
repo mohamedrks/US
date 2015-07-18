@@ -17,7 +17,7 @@
 //header('Access-Control-Allow-Credentials', 'false');
 //header('Access-Control-Max-Age', '1000');
 
-Cartalyst\Sentry\Users\Eloquent\User::setStripeKey('sk_test_1E1w55OxswP6V24fL5fqx8Z5');
+//Cartalyst\Sentry\Users\Eloquent\User::setStripeKey('sk_test_1E1w55OxswP6V24fL5fqx8Z5');
 
 
 Route::group(array('prefix' => 'api/v1'), function () {
