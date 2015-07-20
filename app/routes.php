@@ -150,7 +150,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
 
         Route::get('getSendRequestDetailsFromConsumer','UsersController@getSendRequestDetailsFromConsumer');
 
-        Route::post('getCurrentUserDetails', 'UsersController@getCurrentUserDetails');
+        Route::get('getCurrentUserDetails', 'UsersController@getCurrentUserDetails');
 
         Route::get('getContactById/{contactId}', 'ContactController@getContactById');
 
