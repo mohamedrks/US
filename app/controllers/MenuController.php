@@ -29,38 +29,38 @@ class MenuController extends \BaseController
     {
 
         $id     = Authorizer::getResourceOwnerId();
-        $user   = \Cartalyst\Sentry\Users\Eloquent\User::find($id);
-        $group  = Sentry::findGroupByName('Professionals');
+        //$user   = \Cartalyst\Sentry\Users\Eloquent\User::find($id);
+        //$group  = Sentry::findGroupByName('Professionals');
 
 
-        if ($user->inGroup($group)) {
-
-            $customer = Stripe_Customer::retrieve($user->stripe_id);
-
-            if ($customer->subscriptions->total_count > 0 ) {
-
-                $menues = DB::table('users')
-                            ->leftJoin('users_groups', 'users.id', '=', 'users_groups.user_id')
-                            ->leftJoin('group_menu', 'group_menu.group_id', '=', 'users_groups.group_id')
-                            ->leftJoin('menu', 'menu.id', '=', 'group_menu.menu_id')
-                            ->where('users.id', '=', $id)
-                            ->orderBy('menu.order_number', 'asc')
-                            ->select(array('menu.id','menu.tool_tips', 'menu.name', 'menu.icon', 'menu.view_name', 'menu.parent_id', 'menu.order_number'))
-                            ->get();
-
-            } else {
-
-                $menues = DB::table('users')
-                            ->leftJoin('users_groups', 'users.id', '=', 'users_groups.user_id')
-                            ->leftJoin('group_menu', 'group_menu.group_id', '=', 'users_groups.group_id')
-                            ->leftJoin('menu', 'menu.id', '=', 'group_menu.menu_id')
-                            ->where('users.id', '=', $id)
-                            ->where('menu.view_name', '=', 'payment')
-                            ->orderBy('menu.order_number', 'asc')
-                            ->select(array('menu.id','menu.tool_tips', 'menu.name', 'menu.icon', 'menu.view_name', 'menu.parent_id', 'menu.order_number'))
-                            ->get();
-            }
-        } else {
+//        if ($user->inGroup($group)) {
+//
+//            $customer = Stripe_Customer::retrieve($user->stripe_id);
+//
+//            if ($customer->subscriptions->total_count > 0 ) {
+//
+//                $menues = DB::table('users')
+//                            ->leftJoin('users_groups', 'users.id', '=', 'users_groups.user_id')
+//                            ->leftJoin('group_menu', 'group_menu.group_id', '=', 'users_groups.group_id')
+//                            ->leftJoin('menu', 'menu.id', '=', 'group_menu.menu_id')
+//                            ->where('users.id', '=', $id)
+//                            ->orderBy('menu.order_number', 'asc')
+//                            ->select(array('menu.id','menu.tool_tips', 'menu.name', 'menu.icon', 'menu.view_name', 'menu.parent_id', 'menu.order_number'))
+//                            ->get();
+//
+//            } else {
+//
+//                $menues = DB::table('users')
+//                            ->leftJoin('users_groups', 'users.id', '=', 'users_groups.user_id')
+//                            ->leftJoin('group_menu', 'group_menu.group_id', '=', 'users_groups.group_id')
+//                            ->leftJoin('menu', 'menu.id', '=', 'group_menu.menu_id')
+//                            ->where('users.id', '=', $id)
+//                            ->where('menu.view_name', '=', 'payment')
+//                            ->orderBy('menu.order_number', 'asc')
+//                            ->select(array('menu.id','menu.tool_tips', 'menu.name', 'menu.icon', 'menu.view_name', 'menu.parent_id', 'menu.order_number'))
+//                            ->get();
+//            }
+//        } else {
 
             $menues = DB::table('users')
                 ->leftJoin('users_groups', 'users.id', '=', 'users_groups.user_id')
@@ -70,7 +70,7 @@ class MenuController extends \BaseController
                 ->orderBy('menu.order_number', 'asc')
                 ->select(array('menu.id','menu.tool_tips', 'menu.name', 'menu.icon', 'menu.view_name', 'menu.parent_id', 'menu.order_number'))
                 ->get();
-        }
+        //}
 
         $arrayMenu = array();
 
