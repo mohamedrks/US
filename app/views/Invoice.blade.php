@@ -105,11 +105,11 @@
                 <td>
                     {{$detais->quantity}}
                 </td>
-                <td>
-                <td>  {{$detais->description}} <br>
-                    <label>IMIE NO: {{$detais->imei}}</label></td>
 
+                <td>  {{$detais->description}} <br>
+                    <label>IMIE NO: {{$detais->imei}}</label>
                 </td>
+
                 <td>
                     {{$detais->unit_price}}
                 </td>
