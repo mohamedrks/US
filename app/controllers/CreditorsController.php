@@ -88,15 +88,15 @@ class CreditorsController extends BaseController
 
         $Creditors = DB::select('select n.* , (n.balance - n.totPayment ) as balancePay,v.first_name,v.last_name,v.email,v.phone from
                                     (
-                                        SELECT purchase_invoice.*,Creditors.purchase_invoice_id as invoiceId ,
-                                        case when Creditors.purchase_invoice_id is null then 0
-                                             when Creditors.purchase_invoice_id is not null then sum(Creditors.payment)
+                                        SELECT purchase_invoice.*,creditors.purchase_invoice_id as invoiceId ,
+                                        case when creditors.purchase_invoice_id is null then 0
+                                             when creditors.purchase_invoice_id is not null then sum(creditors.payment)
                                         end as totPayment
 
                                         FROM purchase_invoice
-                                        left join Creditors on Creditors.purchase_invoice_id = purchase_invoice.id
+                                        left join creditors on creditors.purchase_invoice_id = purchase_invoice.id
                                         where balance > 0
-                                        group by Creditors.purchase_invoice_id
+                                        group by creditors.purchase_invoice_id
                                     )   n
                                     left join vendor v on v.id = n.vendor_id
                                     where (n.balance - n.totPayment ) > 0');
