@@ -241,7 +241,7 @@ class InvoiceController extends BaseController
             $Invoice->total         = Input::get('total');
             $Invoice->paid          = Input::get('paid');
             $Invoice->balance       = Input::get('balance');
-            $Invoice->invoice_id    = intval($previousInvoice->invoice_id)+1;//'in_'.md5(time());
+            $Invoice->invoice_id    = intval($previousInvoice)+1;//'in_'.md5(time());
             $Invoice->save();
 
         }

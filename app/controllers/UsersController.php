@@ -444,7 +444,7 @@ class UsersController extends \BaseController
 
             $invoice = new Invoice;
 
-            $invoice->invoice_id = intval($previousInvoice->invoice_id)+1; //$hashname;
+            $invoice->invoice_id = intval($previousInvoice)+1; //$hashname;
             $invoice->subtotal = $subtotal;
             $invoice->total = $total;
             $invoice->paid = $paid;
