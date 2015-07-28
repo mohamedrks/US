@@ -35,7 +35,7 @@ class RepairController extends BaseController
             'customer'         => $customer,//$readinessExerciseString,
         );
 
-        $html =  View::make('RepairInvoice',$arr)->render();
+       $html =  View::make('RepairInvoice',$arr)->render();
         //$html =  View::make('Invoice',$arr);
 //        $arrayreport = array(
 //            'invoice'        => $html
@@ -52,7 +52,8 @@ class RepairController extends BaseController
 
 
         //return PDF::load($html, 'A3', 'portrait')->download('Invoice');
-        return $html ;
+        // return  $arr;
+        return  $html;
     }
 
 

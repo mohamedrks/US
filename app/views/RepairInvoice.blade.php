@@ -96,27 +96,29 @@
                 <th>Price</th>
                 <th>Total</th>
             </tr>
-            @foreach ($invoice_details as $detais)
-            <tr>
-                <td>
-                    {{$detais->title}}
-                </td>
-                <td>
-                    {{$detais->quantity}}
-                </td>
 
-                <td>  {{$detais->description}} <br>
-                    <label>IMIE NO: {{$detais->imei}}</label>
-                </td>
+            <tr><b>
+                    <td>
+                        ----------------
+                    </td>
+                    <td>
+                        1
+                    </td>
 
-                <td>
-                    {{$detais->unit_price}}
-                </td>
-                <td>
-                    {{$detais->quantity * $detais->unit_price }}
-                </td>
+                    <td>
+                        {{ $invoice->description }}<br>
+                        <label>IMIE NO: {{$invoice->imei_number}}</label>
+                    </td>
+
+                    <td>
+                        {{ $invoice->charge }}
+                    </td>
+                    <td>
+                        {{ $invoice->charge }}
+                    </td>
+                </b>
             </tr>
-            @endforeach
+
             <tr><b>
                 <td>
 
@@ -133,7 +135,7 @@
                     Total
                 </td>
                 <td>
-                    {{ $invoice->total }}
+                   {{ $invoice->charge }}
                 </td>
                 </b>
             </tr>
