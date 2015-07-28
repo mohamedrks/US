@@ -117,7 +117,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::resource('invoice','InvoiceController');
     Route::get('getInvoiceDetailsByInvoiceID','DebtorsController@getInvoiceDetailsByInvoiceID');
     Route::get('invoiceReport/{invoiceId}','InvoiceController@invoiceReport');
-    Route::get('repairInvoiceReport/{repairId}','RepairController@repairInvoiceReportx');
+    Route::get('repairInvoiceReport/{repairId}','RepairController@repairInvoiceReport');
 
     Route::get('getParentCategoryProductsByParentId/{parentCategoryId}','ProductCategoryController@getParentCategoryProductsByParentId');
 
