@@ -22,6 +22,9 @@
 
 Route::group(array('prefix' => 'api/v1'), function () {
 
+
+    Route::get('testInvoice','InvoiceController@testInvoice');
+
     Route::get('getOrderDetailsByOrderId/{orderId}','OrderController@getOrderDetailsByOrderId');
     Route::get('getInvoicesByCustomer/{clientId}', 'InvoiceController@getInvoicesByCustomer');
 

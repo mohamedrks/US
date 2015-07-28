@@ -31,6 +31,11 @@ class InvoiceController extends BaseController
 
     }
 
+    public function testInvoice(){
+
+        return $previousInvoice = Invoice::max('invoice_id');
+    }
+
     public function invoiceReport($invoiceId){
 
       //  $invoiceId = 11;//Input::get('invoice_id');
