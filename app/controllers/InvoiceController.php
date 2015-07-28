@@ -226,6 +226,8 @@ class InvoiceController extends BaseController
             $customer = Customer::find(Input::get('customer_id'));
             $order    = Order::find(Input::get('order_id'));
 
+            $invoiceId = Invoice::max('invoice_id');
+
             $Invoice = new Invoice;
 
             $Invoice->customer()->associate($customer);
@@ -234,7 +236,7 @@ class InvoiceController extends BaseController
             $Invoice->total         = Input::get('total');
             $Invoice->paid          = Input::get('paid');
             $Invoice->balance       = Input::get('balance');
-            $Invoice->invoice_id    = 'in_'.md5(time());
+            $Invoice->invoice_id    = intval($invoiceId)+1;//'in_'.md5(time());
             $Invoice->save();
 
         }
