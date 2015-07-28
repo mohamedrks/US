@@ -23,8 +23,6 @@
 Route::group(array('prefix' => 'api/v1'), function () {
 
 
-    Route::get('testInvoice','InvoiceController@testInvoice');
-
     Route::get('getOrderDetailsByOrderId/{orderId}','OrderController@getOrderDetailsByOrderId');
     Route::get('getInvoicesByCustomer/{clientId}', 'InvoiceController@getInvoicesByCustomer');
 
@@ -119,6 +117,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::resource('invoice','InvoiceController');
     Route::get('getInvoiceDetailsByInvoiceID','DebtorsController@getInvoiceDetailsByInvoiceID');
     Route::get('invoiceReport/{invoiceId}','InvoiceController@invoiceReport');
+    Route::get('repairInvoiceReport/{repairId}','RepairController@repairInvoiceReportx');
 
     Route::get('getParentCategoryProductsByParentId/{parentCategoryId}','ProductCategoryController@getParentCategoryProductsByParentId');
 

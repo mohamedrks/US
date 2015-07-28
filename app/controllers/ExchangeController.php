@@ -211,11 +211,23 @@ class ExchangeController extends BaseController
 
                 }
 
-                $previousInvoice = Invoice::max('invoice_id');
+                $previousInvoice = intval(Invoice::max('invoice_id'));
+                $previousRepair  = intval(Repair::max('invoice_id'));
+
+                $maxID = 0;
+
+                if($previousInvoice > $previousRepair ){
+
+                    $maxID = $previousInvoice;
+
+                }else{
+
+                    $maxID = $previousRepair;
+                }
 
                 $invoice = new Invoice;
 
-                $invoice->invoice_id = intval($previousInvoice)+1; //'in_' . date('H.i.s');
+                $invoice->invoice_id = $maxID + 1; //'in_' . date('H.i.s');
                 $invoice->subtotal = floor(Input::get('s_total'));
                 $invoice->total = floor(Input::get('s_total'));
                 $invoice->paid = Input::get('s_paid');

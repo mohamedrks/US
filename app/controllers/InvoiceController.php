@@ -31,10 +31,6 @@ class InvoiceController extends BaseController
 
     }
 
-    public function testInvoice(){
-
-        return $previousInvoice = Invoice::max('invoice_id');
-    }
 
     public function invoiceReport($invoiceId){
 
@@ -44,12 +40,17 @@ class InvoiceController extends BaseController
 
         $customer = Customer::find($invoice->user_id);
 
-        $invoice_details   = DB::select("SELECT ord.quantity,ord.discount,ord.unit_price,ord.description,p.title,itd.imei,p.category_id FROM invoice inv
+        $invoice_details   = DB::select("SELECT ord.quantity,ord.discount,ord.unit_price,ord.description,p.title,itd.imei,p.category_id,ex.purchase_imei , itd2.imei as purchase_imei
+
+                                                FROM invoice inv
                                                 left join order_receipt ord on inv.order_id = ord.order_id
                                                 left join stock s on s.id = ord.stock_id
                                                 left join products p on p.id = s.product_id
                                                 left join item_details itd on itd.order_id = ord.order_id
+                                                left join exchange ex on ex.sales_imei = itd.id
+                                                left join item_details itd2 on itd2.id = ex.purchase_imei
                                         where inv.id = ".$invoiceId);
+
 
         $arr = array(
 
@@ -231,7 +232,19 @@ class InvoiceController extends BaseController
             $customer = Customer::find(Input::get('customer_id'));
             $order    = Order::find(Input::get('order_id'));
 
-            $previousInvoice = Invoice::max('invoice_id');
+            $previousInvoice = intval(Invoice::max('invoice_id'));
+            $previousRepair  = intval(Repair::max('invoice_id'));
+
+            $maxID = 0;
+
+            if($previousInvoice > $previousRepair ){
+
+                $maxID = $previousInvoice;
+
+            }else{
+
+                $maxID = $previousRepair;
+            }
 
             $Invoice = new Invoice;
 
@@ -241,7 +254,7 @@ class InvoiceController extends BaseController
             $Invoice->total         = Input::get('total');
             $Invoice->paid          = Input::get('paid');
             $Invoice->balance       = Input::get('balance');
-            $Invoice->invoice_id    = intval($previousInvoice)+1;//'in_'.md5(time());
+            $Invoice->invoice_id    = $maxID + 1;//'in_'.md5(time());
             $Invoice->save();
 
         }

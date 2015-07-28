@@ -107,14 +107,6 @@
 
                 <td>  {{$detais->description}} <br>
                     <label>IMIE NO: {{$detais->imei}}</label>
-                    <br>
-                    @if ($detais->purchase_imei)
-                    Exchange<br>
-                    <label>Purchase IMIE NO: {{$detais->purchase_imei}}</label>
-                    @endif
-
-
-
                 </td>
 
                 <td>

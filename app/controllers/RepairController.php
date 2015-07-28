@@ -18,8 +18,43 @@ class RepairController extends BaseController
 
     public function index()
     {
-        return $repair = Repair::with('customer')->orderBy('created_at','desc')->orderBy('status','desc')->get();
+        return $repair = Repair::with('customer')->orderBy('created_at','desc')->orderBy('invoice_id','desc')->get();
     }
+
+    public function repairInvoiceReport($repairId){
+
+        //  $invoiceId = 11;//Input::get('invoice_id');
+
+        $repair = Repair::find($repairId);
+
+        $customer = Customer::find($repair->customer_id);
+
+        $arr = array(
+
+            'invoice'          => $repair,//$readinessDietString,
+            'customer'         => $customer,//$readinessExerciseString,
+        );
+
+        $html =  View::make('RepairInvoice',$arr)->render();
+        //$html =  View::make('Invoice',$arr);
+//        $arrayreport = array(
+//            'invoice'        => $html
+//        );
+
+//        $arrayreport = array(
+//
+//            'reportId'      => '20dfgrth',
+//            'first_name'    => $user->first_name,
+//            'last_name'     => $user->last_name,
+//            'report'        => $html
+//        );
+
+
+
+        //return PDF::load($html, 'A3', 'portrait')->download('Invoice');
+        return $html ;
+    }
+
 
     public function getTotalRepairPaidPerDay()
     {
@@ -147,6 +182,20 @@ class RepairController extends BaseController
 
            // $customer = Input::get('customer_id');
 
+            $previousInvoice = intval(Invoice::max('invoice_id'));
+            $previousRepair  = intval(Repair::max('invoice_id'));
+
+            $maxID = 0;
+
+            if($previousInvoice > $previousRepair ){
+
+                $maxID = $previousInvoice;
+
+            }else{
+
+                $maxID = $previousRepair;
+            }
+
             $customer = Customer::find(Input::get('customer_id'));
 
             $repair->customer()->associate($customer);
@@ -157,7 +206,7 @@ class RepairController extends BaseController
             $repair->balance        = ($repair->charge) - ($repair->paid );
             $repair->status         = Input::get('status');
             $repair->expecting_delivery_date = Input::get('delivery_date');
-            $repair->invoice_id    = 'in_'.Input::get('imei_number');//.md5(time());
+            $repair->invoice_id    = $maxID + 1 ;//.md5(time());
 
 
            $repair->save();
