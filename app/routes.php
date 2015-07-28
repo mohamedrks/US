@@ -210,7 +210,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
 
 
 
-    Route::group(['before' => 'oauth|Professionals'], function () {
+    Route::group(['before' => 'oauth|Employee'], function () {
 
         Route::get('getAllBusinessDaysByProfessional','ProfessionalDetailsController@getAllBusinessDaysByProfessional');
         Route::resource('ProfessionalDetails','ProfessionalDetailsController');
@@ -263,38 +263,6 @@ Route::group(array('prefix' => 'api/v1'), function () {
 
     Route::get('getAllBusinessDaysByProfessionalId','ProfessionalDetailsController@getAllBusinessDaysByProfessionalId');
 
-    Route::group(['before' => 'oauth|Consumers'], function () {
-
-
-
-        Route::get('getAppointmentByConsumer','AppointmentController@getAppointmentByConsumer');
-
-        Route::post('acceptNewFriendship','FriendshipController@acceptNewFriendship');
-
-        Route::get('getClosestGeoLocations', 'ContactController@getClosestGeoLocations');
-
-        Route::resource('productComment','ProductCommentController');
-
-        Route::post('payByPinForRecipients','UsersController@payByPinForRecipients');
-        Route::post('payCommission','UsersController@payCommission');
-
-
-        Route::post('resourceUpdateStatus', 'NutritionResourceController@resourceUpdateStatus');
-
-        Route::get('getSelectedResourceByConsumer/{resourceType}', 'NutritionResourceController@getSelectedResourceByConsumer');
-
-
-        Route::get('searchCountry/{req}', 'ContactController@searchCountry');
-
-
-        Route::get('getContactByType/{contactType}', 'ContactController@getContactByType');
-        Route::resource('contact', 'ContactController');
-
-        Route::get('getUserDetailsByMeasurementNameForConsumer/{consumerId}/{measurementName}', 'UserDetailsController@getUserDetailsByMeasurementName');
-        Route::post('updateMedicalHistory','UserDetailsController@updateMedicalHistory');
-    });
-
-
 
     Route::resource('getLocationByIp', 'SuburbController@getLocationByIp');
     Route::get('searchPostalCode/{req}','SuburbController@searchPostalCode');
@@ -315,7 +283,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::get('getCreditPaymentHistoryByInvoiceId','CreditorsController@getCreditPaymentHistoryByInvoiceId');
     Route::get('getPaymentHistoryByInvoiceId','DebtorsController@getPaymentHistoryByInvoiceId');
 
-    Route::group(['before' => 'oauth|GlobalAdmin,Professionals,Consumers'], function () {
+    Route::group(['before' => 'oauth|GlobalAdmin,Employee'], function () {
 
         Route::resource('repairOutsource','RepairOutsourceController');
         Route::get('getTotalRepairOutsourcePaidPerDay','RepairOutsourceController@getTotalRepairOutsourcePaidPerDay');

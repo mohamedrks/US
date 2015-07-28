@@ -96,10 +96,10 @@ Route::filter('oauth', function () {
     if (!Sentry::check()) return Response::make('Unauthorized', 401); //fix this
 });
 
-Route::filter('Professionals', function () {
+Route::filter('Employee', function () {
     $user = Sentry::getUser();
 
-    $admin = Sentry::findGroupByName('Professionals');
+    $admin = Sentry::findGroupByName('Employee');
 
 
     $returnData = array(
@@ -111,21 +111,21 @@ Route::filter('Professionals', function () {
         return Response::json($returnData, 401); /*return json error to fayas*/
 });
 
-Route::filter('Consumers', function () {
-
-    $user = Sentry::findUserByID(Authorizer::getResourceOwnerId());//Sentry::getUser();
-
-    $users = Sentry::findGroupByName('Consumers');
-
-    if (!$user) {
-        return Response::make('Unauthorized', 401);
-
-    }else if (!$user->inGroup($users)) {
-
-        return Response::make('Unauthorized', 401);
-    }
-    //if (!$user->inGroup($users) ) return Response::make('Unauthorized', 401);
-});
+//Route::filter('Consumers', function () {
+//
+//    $user = Sentry::findUserByID(Authorizer::getResourceOwnerId());//Sentry::getUser();
+//
+//    $users = Sentry::findGroupByName('Consumers');
+//
+//    if (!$user) {
+//        return Response::make('Unauthorized', 401);
+//
+//    }else if (!$user->inGroup($users)) {
+//
+//        return Response::make('Unauthorized', 401);
+//    }
+//    //if (!$user->inGroup($users) ) return Response::make('Unauthorized', 401);
+//});
 
 Route::filter('GlobalAdmin', function () {
     $user = Sentry::getUser();
