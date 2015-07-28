@@ -440,11 +440,11 @@ class UsersController extends \BaseController
             $subtotal = floor($amount);
             $total = floor($amount);
             $order = Order::find($order_id);
-            $invoiceId = Invoice::max('invoice_id');
+            $previousInvoice = Invoice::max('invoice_id');
 
             $invoice = new Invoice;
 
-            $invoice->invoice_id = intval($invoiceId)+1; //$hashname;
+            $invoice->invoice_id = intval($previousInvoice->invoice_id)+1; //$hashname;
             $invoice->subtotal = $subtotal;
             $invoice->total = $total;
             $invoice->paid = $paid;

@@ -211,11 +211,11 @@ class ExchangeController extends BaseController
 
                 }
 
-                $invoiceId = Invoice::max('invoice_id');
+                $previousInvoice = Invoice::max('invoice_id');
 
                 $invoice = new Invoice;
 
-                $invoice->invoice_id = intval($invoiceId)+1; //'in_' . date('H.i.s');
+                $invoice->invoice_id = intval($previousInvoice->invoice_id)+1; //'in_' . date('H.i.s');
                 $invoice->subtotal = floor(Input::get('s_total'));
                 $invoice->total = floor(Input::get('s_total'));
                 $invoice->paid = Input::get('s_paid');
