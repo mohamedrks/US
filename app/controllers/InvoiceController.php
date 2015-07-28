@@ -33,7 +33,7 @@ class InvoiceController extends BaseController
 
     public function invoiceReport($invoiceId){
 
-       // $invoiceId = 11;//Input::get('invoice_id');
+      //  $invoiceId = 11;//Input::get('invoice_id');
 
         $invoice = Invoice::find($invoiceId);
 

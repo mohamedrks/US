@@ -34,7 +34,6 @@
     <div style="width: 100%; display: table;">
         <div style="display: table-row">
             <div style="width: 600px; display: table-cell;">
-
                 <br/>
                 <!--   <img src="../img/logo.png">-->
                 <img src="http://128.199.121.35/resources/logo.png" height="100" width="290">
@@ -118,6 +117,26 @@
                 </td>
             </tr>
             @endforeach
+            <tr><b>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+
+                <td>
+
+                </td>
+
+                <td>
+                    Total
+                </td>
+                <td>
+                    {{ $invoice->total }}
+                </td>
+                </b>
+            </tr>
         </table>
 
 
@@ -128,24 +147,24 @@
     <div style="width: 100%; display: table;">
         <div style="display: table-row">
             <div style="width: 600px; display: table-cell;">
-                <table style="width:60%;height: 100px"
+                <!--<table style="width:60%;height: 100px"
                 " border="1">
                 <td>
                     <b>Note</b>
 
                 </td>
-                </table>
+                </table>-->
 
             </div>
             <div style="display: table-cell;">
-                <table style="width:100%;height: 100px" border="1">
+              <!--  <table style="width:100%;height: 100px" border="1">
                     <td>
                         <b>Total</b>
                         <br>
                         <br>
                         {{ $invoice->total }} <br/>
                     </td>
-                </table>
+                </table>-->
 
             </div>
         </div>
@@ -156,22 +175,49 @@
     <div style="width: 100%; display: table;">
         <div style="display: table-row">
             <div style="width: 600px; display: table-cell;">
-
-                <h5><b>Received By</b></h5>
-
-                <p>
-                </p>
+                One year Warranty covers for software Six months Warranty for all accessories  but defects due to other causes such as negligence,misuse,
+                improper operation, power fluctuation,lightning or
+                other natural disasters are not included under this warranty. Warranty for LCD Ribbon is not available. We are not responsible for the
+                refund of money or phone  to phone replacement.
+                Warranty becomes void when you update the System Software by yourself.
+                Repairs or Replacements necessitated by such causes under this Warranty are subject to charge for labour,time and material.
             </div>
-            <div style="display: table-cell;">
-                <h5><b>For unique store</b></h5>
+       <!--     <div style="display: table-cell;">
+                <table style="width:100%;height: 100px" border="1">
+                    <td>
+                        <b>Total</b>
+                        <br>
+                        <br>
+                        {{ $invoice->total }} <br/>
+                    </td>
+                </table>
 
-                <p>
-
-                </p>
             </div>
-        </div>
+        </div>-->
     </div>
 
+        <br>
+        <div style="width: 100%; display: table;">
+            <div style="display: table-row">
+                <div style="width: 600px; display: table-cell;">
+                    <table style="width:60%;height: 100px"
+                    " border="1">
+                    <td>
+                        <h5><b>Received By</b></h5>
+
+                    </td>
+                    </table>
+
+                </div>
+                <div style="display: table-cell;">
+                      <table style="width:100%;height: 100px" border="1">
+                          <td>
+                              <h5><b>For unique store</b></h5>
+                      </table>
+
+                </div>
+            </div>
+        </div>
 
 </div>
 

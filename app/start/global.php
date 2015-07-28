@@ -92,4 +92,8 @@ define('DB_SERVER_NAME','cgbqpuhdmx'); //root
 define('DB_SERVER_USER_NAME','cgbqpuhdmx'); // uniquestore
 define('DB_SERVER_PASSWORD','aJP2WDMETT');
 
+/*define('DB_SERVER_NAME','root'); //root
+define('DB_SERVER_USER_NAME','uniquestore'); // uniquestore
+define('DB_SERVER_PASSWORD','');*/
+
 setlocale(LC_MONETARY,"en_US");
