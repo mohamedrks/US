@@ -139,6 +139,32 @@
                 </td>
                 </b>
             </tr>
+            <tr><b>
+                    <td colspan="3">
+
+                    </td>
+                    <td>
+                        Paid
+                    </td>
+                    <td>
+                        {{ $invoice->paid }}
+                    </td>
+                </b>
+            </tr>
+            <tr><b>
+                    <td colspan="3">
+
+                    </td>
+
+
+                    <td>
+                        Balance
+                    </td>
+                    <td>
+                        {{ $invoice->balance}}
+                    </td>
+                </b>
+            </tr>
         </table>
 
 
