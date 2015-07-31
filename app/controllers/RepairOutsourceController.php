@@ -157,7 +157,7 @@ class RepairOutsourceController extends BaseController
             $repair->balance        = ($repair->charge) - ($repair->paid );
             $repair->status         = Input::get('status');
             $repair->expecting_delivery_date = Input::get('delivery_date');
-            $repair->repair_outsource_invoice_id    = 'in_'.Input::get('imei_number');//.md5(time());
+           /* $repair->repair_outsource_invoice_id    = 'in_'.Input::get('imei_number');//.md5(time());*/
 
 
             $repair->save();
