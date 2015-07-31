@@ -106,7 +106,10 @@
                 </td>
 
                 <td>  {{$detais->description}} <br>
+
+                    @if ($detais->category_id == 16)
                     <label>IMIE NO: {{$detais->imei}}</label>
+                    @endif
                     <br>
                     @if ($detais->purchase_imei)
                     Exchange<br>
@@ -125,17 +128,12 @@
                 </td>
             </tr>
             @endforeach
+
             <tr><b>
-                <td>
-
-                </td>
-                <td>
+                <td colspan="3">
 
                 </td>
 
-                <td>
-
-                </td>
 
                 <td>
                     Total
@@ -143,6 +141,32 @@
                 <td>
                     {{ $invoice->total }}
                 </td>
+                </b>
+            </tr>
+            <tr><b>
+                    <td colspan="3">
+
+                    </td>
+                    <td>
+                        Paid
+                    </td>
+                    <td>
+                        {{ $invoice->paid }}
+                    </td>
+                </b>
+            </tr>
+            <tr><b>
+                    <td colspan="3">
+
+                    </td>
+
+
+                    <td>
+                        Balance
+                    </td>
+                    <td>
+                        {{ $invoice->balance}}
+                    </td>
                 </b>
             </tr>
         </table>
