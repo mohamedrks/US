@@ -120,17 +120,9 @@
             </tr>
 
             <tr><b>
-                <td>
+                <td colspan="3">
 
                 </td>
-                <td>
-
-                </td>
-
-                <td>
-
-                </td>
-
                 <td>
                     Total
                 </td>
