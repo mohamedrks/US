@@ -36,7 +36,7 @@
             <div style="width: 600px; display: table-cell;">
                 <br/>
                 <!--   <img src="../img/logo.png">-->
-                <img src="http://128.199.121.35/resources/logo.png" height="100" width="290">
+                <img src="http://128.199.124.27/resources/logo.png" height="100" width="290">
 
                 <p>UNIQUE INDEED CUSTOMERS DELIGHT</p>
             </div>
